@@ -72,8 +72,8 @@ Take a look [here](./example-showcase/add_me.md) for detailed version.
 
 Pull requests are welcome.
 
-See the [guidelines](contributing.md) for contributing to this project.
+See the [guidelines](CONTRIBUTING.md) for contributing to this project.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](LICENSE)
