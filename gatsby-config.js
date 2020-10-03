@@ -14,7 +14,7 @@ module.exports = {
       options: {
         path: `./src/data/`,
         google: {
-          families: ['Roboto']
+          families: ['Droid Sans', 'Droid Serif', 'Roboto']
         }
       },
     },
