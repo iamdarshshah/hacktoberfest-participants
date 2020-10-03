@@ -2,8 +2,8 @@ import React from 'react'
 import CardContent from '@material-ui/core/CardContent'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Toolbar from '@material-ui/core/Toolbar'
-import Footer from '../components/footer'
-import Logo from '../components/logo'
+import Footer from '../components/Footer'
+import Logo from '../components/Logo'
 import { useStyles } from '../styles/style'
 import {
   AppBar,
@@ -21,7 +21,7 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import { Helmet } from 'react-helmet'
-import icon from '../../static/icon.png'
+import icon from '../static/Icon.png'
 
 export default function Home({ data }) {
   const theme = createMuiTheme({
@@ -33,7 +33,6 @@ export default function Home({ data }) {
     },
   })
   const classes = useStyles()
-  console.log(theme)
 
   const edges = data.allContributorsJson.edges
   return (
