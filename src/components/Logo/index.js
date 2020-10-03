@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStyles } from '../../styles/style'
+import icon from '../../static/Icon.png'
 
 export default () => {
   const classes = useStyles()
@@ -10,7 +11,7 @@ export default () => {
         alt='Logo'
         width='60px'
         height='60px'
-        src='icon.png'
+        src={icon}
       />
     </a>
   )
