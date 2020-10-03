@@ -16,8 +16,11 @@ function Header(props) {
       >
         <Logo />
         <Typography variant='h4' color='textPrimary'>
-          <a href='#' style={{ textDecoration: 'none', color: 'inherit' }}>
-            Hacktoberfest'20 🎃
+          <a href='/' style={{ textDecoration: 'none', color: 'inherit' }}>
+            Hacktoberfest'20{' '}
+            <span role='img' aria-label='pumpkin'>
+              🎃
+            </span>
           </a>
         </Typography>
         <Toggle onChange={props.onChange} />

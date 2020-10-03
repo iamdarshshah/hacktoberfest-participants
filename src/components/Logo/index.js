@@ -5,7 +5,7 @@ import icon from '../../static/Icon.png'
 export default () => {
   const classes = useStyles()
   return (
-    <a href='#'>
+    <a href='/'>
       <img
         className={classes.logo}
         alt='Logo'
