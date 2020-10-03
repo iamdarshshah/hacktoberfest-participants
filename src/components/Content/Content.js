@@ -30,7 +30,10 @@ function Content(props) {
             color='inherit'
             gutterBottom
           >
-            Are you participating? 🤔
+            Are you participating?{' '}
+            <span role='img' aria-label='thinking'>
+              🤔
+            </span>
           </Typography>
           <Typography
             variant='h5'

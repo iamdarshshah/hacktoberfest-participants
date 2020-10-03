@@ -12,14 +12,22 @@ function Footer() {
         <Link color='textPrimary' href='https://gatsbyjs.com'>
           Gatsby
         </Link>{' '}
-        💘, Deployed on{' '}
+        <span role='img' aria-label='heart'>
+          💘
+        </span>
+        , Deployed on{' '}
         <Link color='textPrimary' href='https://www.netlify.com/'>
           Netlify
         </Link>{' '}
-        🚀
+        <span role='img' aria-label='rocket'>
+          🚀
+        </span>
       </Typography>
       <Typography variant='body1' align='center'>
-        Thank you for supporting the Open-Source community! 😄
+        Thank you for supporting the Open-Source community!{' '}
+        <span role='img' aria-label='smile'>
+          😄
+        </span>
       </Typography>
       <Typography variant='body1' align='center' color='textPrimary'>
         iamdarshshah &copy; 2020
