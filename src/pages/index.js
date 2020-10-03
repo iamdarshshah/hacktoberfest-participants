@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { Helmet } from 'react-helmet'

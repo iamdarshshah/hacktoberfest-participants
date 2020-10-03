@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Button,
   Card,
   CardContent,
   Container,
@@ -11,7 +10,6 @@ import {
 import GitHubIcon from '@material-ui/icons/GitHub'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import { graphql } from 'gatsby'
 import Link from '@material-ui/core/Link'
 import useStyles from './Content.styles'
 import { AwesomeButtonSocial } from 'react-awesome-button'
@@ -20,6 +18,7 @@ import 'react-awesome-button/dist/styles.css'
 function Content(props) {
   const { edges } = props.data.allContributorsJson
   const classes = useStyles()
+
   return (
     <main>
       <div className={classes.heroContent}>
@@ -67,7 +66,6 @@ function Content(props) {
         </Container>
       </div>
       <Container className={classes.cardGrid} maxWidth='md'>
-        {/* End hero unit */}
         <Grid container spacing={4}>
           {edges.map((edge, index) => {
             return (

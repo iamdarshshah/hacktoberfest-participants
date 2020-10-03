@@ -7,12 +7,13 @@
 module.exports = {
   /* Your site config here */
   plugins: [
+    `gatsby-plugin-material-ui`,
     `gatsby-transformer-json`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data/`,
+        path: `./src/contributors/`,
       },
     },
     `gatsby-transformer-sharp`,
