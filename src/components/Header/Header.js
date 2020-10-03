@@ -6,13 +6,14 @@ import useStyles from './Header.styles'
 function Header(props) {
   const classes = useStyles()
   return (
-    <AppBar position='static' className={classes.root}>
+    <AppBar position='static'>
       <Toolbar
         style={{
           width: '100%',
           display: 'flex',
           justifyContent: 'space-between',
         }}
+        className={classes.root}
       >
         <Logo />
         <Typography variant='h4' color='textPrimary'>
