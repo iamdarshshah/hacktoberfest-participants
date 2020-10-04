@@ -3,7 +3,7 @@ import React from 'react'
 import Toggle from '../common/Toggle'
 import Logo from '../Logo'
 import useStyles from './Header.styles'
-function Header(props) {
+function Header({ onChange, theme }) {
   const classes = useStyles()
   return (
     <AppBar position='static'>
@@ -24,7 +24,7 @@ function Header(props) {
             </span>
           </a>
         </Typography>
-        <Toggle onChange={props.onChange} />
+        <Toggle onChange={onChange} checked={theme === 'dark' ? true : false} />
       </Toolbar>
     </AppBar>
   )
