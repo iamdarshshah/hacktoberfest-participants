@@ -6,7 +6,7 @@
 ```
 {
     "name": "Darsh Shah",
-    "desc": "This is test Desc."
+    "desc": "This is test Desc.",
     "github" : "https://github.com/iamdarshshah",
     "twitter" : "https://twitter.com/iamdarshshah",
     "linkedin" : "https://www.linkedin.com/in/iamdarshshah"
