@@ -7,6 +7,7 @@ import {
   Typography,
   CardMedia,
   CardContent,
+  Avatar,
 } from '@material-ui/core'
 import config from '../../config/constants'
 import useStyles from './Profile.styles'
@@ -18,6 +19,7 @@ function Profile({ id }) {
     fetch(`${config.API_URL}${id}`)
       .then((response) => response.json())
       .then((result) => {
+        console.log(result)
         setData(result)
       })
   }, [])
@@ -28,17 +30,18 @@ function Profile({ id }) {
 
   return (
     <Card className={classes.card}>
-      <CardHeader
-        title={items[0].user.login}
-        subheader={<CountPullRequest totalPullRequests={data.total_count} />}
-      />
-      <CardMedia
-        className={classes.media}
-        image={items[0].user.avatar_url}
-        title='User Avatar'
-      />
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <CardHeader
+          title={items[0].user.login}
+          style={{ fontSize: 32 }}
+          subheader={<CountPullRequest totalPullRequests={data.total_count} />}
+          avatar={<Avatar src={items[0].user.avatar_url} />}
+        />
+      </div>
 
-      <CardContent>
+      <CardMedia className={classes.media} title='User Avatar' />
+
+      <CardContent style={{ overflow: 'auto', maxHeight: '60vh' }}>
         {data.items.map(({ html_url, title, state }, i) => (
           <div key={i}>
             <Typography variant='body2' className={classes.title}>
