@@ -50,10 +50,6 @@ export default makeStyles((theme) => ({
     width: '100%',
   },
   modalContainer: {
-    minHeight: '40%',
-    minWidth: '40%',
-    maxHeight: '50%',
-    width: '70%',
     justifyContent: 'center',
     alignItems: 'center',
     display: 'flex',
