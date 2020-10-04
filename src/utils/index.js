@@ -2,13 +2,18 @@ import React from 'react'
 
 const useThemeState = (defaultValue, key) => {
   const [value, setValue] = React.useState(() => {
-    const theme = localStorage.getItem(key)
-
-    return theme !== null ? JSON.parse(theme) : defaultValue
+    let theme = defaultValue
+    if (typeof window !== 'undefined') {
+      theme = localStorage.getItem(key)
+      return theme ? JSON.parse(theme) : defaultValue
+    }
+    return
   })
 
   React.useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value))
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(key, JSON.stringify(value))
+    }
   }, [key, value])
 
   return [value, setValue]

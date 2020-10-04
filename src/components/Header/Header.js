@@ -24,7 +24,7 @@ function Header({ onChange, theme }) {
             </span>
           </a>
         </Typography>
-        <Toggle onChange={onChange} checked={theme === 'dark' ? true : false} />
+        <Toggle onChange={onChange} checked={theme === 'dark'} />
       </Toolbar>
     </AppBar>
   )
