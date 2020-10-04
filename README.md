@@ -87,9 +87,9 @@ Our aim for this project is to have a list of all the participants, contributed 
 {
     "name": "REQUIRED PARAMETER", 
     "desc": "REQUIRED PARAMETER",
-    "github" : "REQUIRED PARAMETER",
-    "twitter" : "OPTIONAL PARAMETER", 
-    "linkedin" : "OPTIONAL PARAMETER"
+    "github": "REQUIRED PARAMETER",
+    "twitter": "OPTIONAL PARAMETER", 
+    "linkedin": "OPTIONAL PARAMETER"
 }
 ```
 > NOTE: The parameters mentioned as `REQUIRED` are must needed! and you can ignore the `OPTIONAL` parameters, But don't push _blank optional parameter_. Either completely ignore them or else add the required details to it.
