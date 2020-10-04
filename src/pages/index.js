@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { Helmet } from 'react-helmet'
 import { darkTheme, lightTheme } from '../config/theme'
+import { useThemeState } from '../utils'
 import Header from '../components/Header'
 import icon from '../static/Icon.png'
 import Footer from '../components/Footer'
@@ -12,9 +13,9 @@ import Content from '../components/Content'
 
 export default function Home(props) {
   const classes = useStyles()
-  const [theme, setTheme] = React.useState(false)
+  const [theme, setTheme] = useThemeState('light', 'theme')
   return (
-    <ThemeProvider theme={theme ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <React.Fragment>
         <CssBaseline />
         <Helmet>
@@ -28,8 +29,9 @@ export default function Home(props) {
         </Helmet>
         <Header
           onChange={() => {
-            setTheme((prev) => !prev)
+            setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
           }}
+          theme={theme}
         />
         <Content {...props} />
         <footer className={classes.footer}>
