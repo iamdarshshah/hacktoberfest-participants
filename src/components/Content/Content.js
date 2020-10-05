@@ -4,7 +4,9 @@ import {
   CardContent,
   Container,
   Divider,
+  Fade,
   Grid,
+  Modal,
   Typography,
 } from '@material-ui/core'
 import GitHubIcon from '@material-ui/icons/GitHub'
@@ -14,11 +16,13 @@ import Link from '@material-ui/core/Link'
 import useStyles from './Content.styles'
 import { AwesomeButtonSocial } from 'react-awesome-button'
 import 'react-awesome-button/dist/styles.css'
+import Profile from '../Profile'
 
 function Content(props) {
   const { edges } = props.data.allContributorsJson
   const classes = useStyles()
-
+  const [modal, setModal] = React.useState(false)
+  const [id, setID] = React.useState(null)
   return (
     <main>
       <div className={classes.heroContent}>
@@ -73,7 +77,14 @@ function Content(props) {
           {edges.map((edge, index) => {
             return (
               <Grid key={index} item xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
+                <Card
+                  className={classes.card}
+                  onClick={() => {
+                    setModal(true)
+                    const githubID = edge.node.github.split('.com/')[1]
+                    setID(githubID)
+                  }}
+                >
                   <CardContent className={classes.cardContent}>
                     <Typography
                       gutterBottom
@@ -134,6 +145,24 @@ function Content(props) {
               </Grid>
             )
           })}
+          <Modal
+            disableEnforceFocus
+            disableAutoFocus
+            closeAfterTransition
+            open={modal}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            onClose={() => setModal(false)}
+          >
+            <div className={classes.modalContainer}>
+              <Fade in={modal}>
+                <Profile id={id} />
+              </Fade>
+            </div>
+          </Modal>
         </Grid>
       </Container>
     </main>
