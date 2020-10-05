@@ -1,3 +1,4 @@
+
 /**
  * Configure your Gatsby site with this file.
  *
@@ -13,10 +14,15 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `./src/data/`,
-        google: {
-          families: ['Droid Sans', 'Droid Serif', 'Roboto']
-        }
       },
+    },
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        google: {
+          families: ['Roboto']
+        }
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
