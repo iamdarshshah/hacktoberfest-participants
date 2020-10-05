@@ -22,12 +22,13 @@ function Profile({ id }) {
       fetch(`${config.API_URL_MERGED}${id}`).then((response) => response.json())
     );
     Promise.all(promises).then(([all, merged]) => {
-      const data = all.items.map((pr) =>
-        merged.items.find((mergedPR) => mergedPR.id === pr.id)
-          ? { ...pr, state: 'merged' }
-          : pr
-      );
-      console.log(data);
+      const data =
+        all.items &&
+        all.items.map((pr) =>
+          merged.items && merged.items.find((mergedPR) => mergedPR.id === pr.id)
+            ? { ...pr, state: 'merged' }
+            : pr
+        );
       setData(data);
     });
   }, []);
@@ -46,21 +47,20 @@ function Profile({ id }) {
         }
       />
 
-      <CardMedia className={classes.media} title='User Avatar' />
-
       <CardContent className={classes.prList}>
-        {data.map(({ html_url, title, state, number }, i) => (
-          <div key={i}>
-            <Typography variant='body2'>
-              <Link href={html_url} className={classes.title}>
-                <code>{`#${number} ${title} `}</code>
-              </Link>
-            </Typography>
-            <Typography variant='body2' className={classes.state}>
-              <code>{state}</code>
-            </Typography>
-          </div>
-        ))}
+        {data &&
+          data.map(({ html_url, title, state, number }, i) => (
+            <div key={i}>
+              <Typography variant='body2'>
+                <Link to={html_url} className={classes.title}>
+                  <code>{`#${number} ${title} `}</code>
+                </Link>
+              </Typography>
+              <Typography variant='body2' className={classes.state}>
+                <code>{state}</code>
+              </Typography>
+            </div>
+          ))}
       </CardContent>
     </Card>
   );
