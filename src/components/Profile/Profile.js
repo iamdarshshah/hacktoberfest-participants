@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import CountPullRequest from '../pullRequest/countPullRequest';
 import {
   Card,
@@ -8,6 +7,7 @@ import {
   CardMedia,
   CardContent,
   Avatar,
+  Link,
 } from '@material-ui/core';
 import config from '../../config/constants';
 import useStyles from './Profile.styles';
@@ -52,7 +52,7 @@ function Profile({ id }) {
           data.map(({ html_url, title, state, number }, i) => (
             <div key={i}>
               <Typography variant='body2'>
-                <Link to={html_url} className={classes.title}>
+                <Link href={html_url} className={classes.title}>
                   <code>{`#${number} ${title} `}</code>
                 </Link>
               </Typography>
