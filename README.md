@@ -1,5 +1,5 @@
 <p align="center">
-<img src="/src/static/logo.png" alt="Logo" width="20%" />
+<img src="/src/static/logo.png" alt="Logo" width="30%" />
 </p>
 <h1 align="center">Hacktoberfest Participants - Community 🎃 </h1>
 <p align="center">
