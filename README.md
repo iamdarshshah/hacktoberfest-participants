@@ -1,4 +1,6 @@
-<img align="center" src="https://github.com/iamdarshshah/hacktoberfest-participants/blob/master/src/static/logo.png" alt="GitHub license" />
+<p align="center">
+<img src="/src/static/logo.png" alt="Logo" />
+</p>
 <h1 align="center">Hacktoberfest Participants - Community 🎃 </h1>
 <p align="center">
   <a href="https://github.com/iamdarshshah/hacktoberfest-participants/blob/master/LICENSE">
