@@ -1,3 +1,6 @@
+<p align="center">
+<img src="/src/static/logo.png" alt="Logo" width="30%" />
+</p>
 <h1 align="center">Hacktoberfest Participants - Community 🎃 </h1>
 <p align="center">
   <a href="https://github.com/iamdarshshah/hacktoberfest-participants/blob/master/LICENSE">
@@ -30,9 +33,15 @@
   <i>A platform that shows a list of all the hackers, participated in month-long challenge Hacktoberfest presented by DigitalOcean.</i>
 </p>
 
------------
+---
 
-Our aim for this project is to have a list of all the participants, contributed to various Open Source projects during Hactoberfest Challenge. Not only that, we will be able to see stats for every contributor part of this community. We are basically aiming to help the community people by showcasing them on this list and people can connect with each other being a part of the community. Let's come together and make this Open Source world a better place. Go add yourself to the list. 🚀
+Our aim for this project is to have a list of all the participants, contributed
+to various Open Source projects during Hactoberfest Challenge. Not only that, we
+will be able to see stats for every contributor part of this community. We are
+basically aiming to help the community people by showcasing them on this list
+and people can connect with each other being a part of the community. Let's come
+together and make this Open Source world a better place. Go add yourself to the
+list. 🚀
 
 <div align="center">
   <table border="0" cellspacing="0" cellpadding="0">
@@ -85,14 +94,17 @@ Our aim for this project is to have a list of all the participants, contributed 
 
 ```json
 {
-    "name": "REQUIRED PARAMETER", 
-    "desc": "REQUIRED PARAMETER",
-    "github": "REQUIRED PARAMETER",
-    "twitter": "OPTIONAL PARAMETER", 
-    "linkedin": "OPTIONAL PARAMETER"
+  "name": "REQUIRED PARAMETER",
+  "desc": "REQUIRED PARAMETER",
+  "github": "REQUIRED PARAMETER",
+  "twitter": "OPTIONAL PARAMETER",
+  "linkedin": "OPTIONAL PARAMETER"
 }
 ```
-> NOTE: The parameters mentioned as `REQUIRED` are must needed! and you can ignore the `OPTIONAL` parameters, But don't push _blank optional parameter_. Either completely ignore them or else add the required details to it.
+
+> NOTE: The parameters mentioned as `REQUIRED` are must needed! and you can
+> ignore the `OPTIONAL` parameters, But don't push _blank optional parameter_.
+> Either completely ignore them or else add the required details to it.
 
 5. Commit and generate your awesome pull request with us at
    **iamdarshshah/hacktoberfest-participants**
@@ -101,7 +113,7 @@ Our aim for this project is to have a list of all the participants, contributed 
 
 ## 🤝 Contributing
 
-Pull requests are welcome. 
+Pull requests are welcome.
 
 See the [guidelines](CONTRIBUTING.md) for contributing to this project.
 
