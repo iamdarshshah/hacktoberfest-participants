@@ -52,7 +52,7 @@ function Profile({ id }) {
           data.map(({ html_url, title, state, number }, i) => (
             <div key={i}>
               <Typography variant='body2'>
-                <Link href={html_url} className={classes.title}>
+                <Link href={html_url} className={classes.title} target='_blank'>
                   <code>{`#${number} ${title} `}</code>
                 </Link>
               </Typography>
