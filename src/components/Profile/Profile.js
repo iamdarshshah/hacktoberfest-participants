@@ -33,7 +33,7 @@ function Profile({ id }) {
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <CardHeader
           title={items[0].user.login}
-          style={{ fontSize: 32 }}
+          titleTypographyProps={{ variant: 'h2' }}
           subheader={<CountPullRequest totalPullRequests={data.total_count} />}
           avatar={<Avatar src={items[0].user.avatar_url} />}
         />
@@ -44,8 +44,8 @@ function Profile({ id }) {
       <CardContent style={{ overflow: 'auto', maxHeight: '60vh' }}>
         {data.items.map(({ html_url, title, state }, i) => (
           <div key={i}>
-            <Typography variant='body2' className={classes.title}>
-              <Link href={html_url}>
+            <Typography variant='body2'>
+              <Link href={html_url} className={classes.title}>
                 <code>{title}</code>
               </Link>
             </Typography>
