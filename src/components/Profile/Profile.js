@@ -37,25 +37,23 @@ function Profile({ id }) {
 
   return (
     <Card className={classes.card}>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <CardHeader
-          title={data[0].user.login}
-          titleTypographyProps={{ variant: 'h4' }}
-          subheader={<CountPullRequest totalPullRequests={data.length} />}
-          avatar={
-            <Avatar src={data[0].user.avatar_url} className={classes.image} />
-          }
-        />
-      </div>
+      <CardHeader
+        title={data[0].user.login}
+        titleTypographyProps={{ variant: 'h4' }}
+        subheader={<CountPullRequest totalPullRequests={data.length} />}
+        avatar={
+          <Avatar src={data[0].user.avatar_url} className={classes.image} />
+        }
+      />
 
       <CardMedia className={classes.media} title='User Avatar' />
 
-      <CardContent style={{ overflow: 'auto', maxHeight: '60vh' }}>
+      <CardContent className={classes.prList}>
         {data.map(({ html_url, title, state, number }, i) => (
           <div key={i}>
             <Typography variant='body2'>
               <Link href={html_url} className={classes.title}>
-                <code>{`#${number}\t\t${title} `}</code>
+                <code>{`#${number} ${title} `}</code>
               </Link>
             </Typography>
             <Typography variant='body2' className={classes.state}>

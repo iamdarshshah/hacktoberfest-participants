@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core';
 
 export default makeStyles((theme) => ({
   container: {
@@ -34,4 +34,8 @@ export default makeStyles((theme) => ({
       cursor: 'pointer',
     },
   },
-}))
+  prList: {
+    overflow: 'auto',
+    maxHeight: '60vh',
+  },
+}));
