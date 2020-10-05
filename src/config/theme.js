@@ -1,7 +1,7 @@
 import { createMuiTheme } from '@material-ui/core'
 
 const typography = {
-  fontFamily: ['Helvetica'].join(','),
+  fontFamily: ['Bebas Neue'].join(','),
 }
 
 const breakpoints = {
