@@ -9,13 +9,12 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
   },
   image: {
-    justifyContent: 'center',
-    border: '4px solid white',
-    height: '75%',
-    width: '75%',
+    height: theme.spacing(10),
+    width: theme.spacing(10),
   },
   title: {
     color: theme.palette.text.primary,
+    textDecoration: 'none',
   },
   state: {
     color: theme.palette.text.secondary,
