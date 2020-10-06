@@ -9,19 +9,69 @@ import {
   Modal,
   Typography,
 } from '@material-ui/core'
+import {
+  withStyles,
+} from '@material-ui/core/styles';
 import GitHubIcon from '@material-ui/icons/GitHub'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import TextField from '@material-ui/core/TextField'
 import Link from '@material-ui/core/Link'
 import useStyles from './Content.styles'
 import { AwesomeButtonSocial } from 'react-awesome-button'
 import 'react-awesome-button/dist/styles.css'
 import Profile from '../Profile'
 
+const SearchTextField = withStyles((theme) => {
+  return {
+    root: {
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: theme.palette.secondary.dark,
+        },
+        '&:hover fieldset': {
+          borderColor: theme.palette.primary.contrastText,
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: theme.palette.primary.contrastText,
+        },
+      },
+    },
+  }
+})(TextField);
+
 function Content(props) {
   const { edges } = props.data.allContributorsJson
   const classes = useStyles()
   const [modal, setModal] = React.useState(false)
+  const [filteredParticipants, setFilteredParticipants] = React.useState(edges)
+  const [searchText, setSearchText] = React.useState('')
+
+  const handleSearch = ({ target }) => {
+    setSearchText(target.value);
+  }
+
+  const getGithubUsernameFromURL = (URL) => {
+    return URL.substring(19).toLowerCase()
+  }
+
+  React.useEffect(() => {
+    if (searchText) {
+      const caseFreeSearchText = searchText.trim().toLowerCase();
+      if (!edges || !edges.length) return;
+
+      const fileredResult = edges.filter(({ node }) => {
+        return node.name.toLowerCase().includes(caseFreeSearchText) || getGithubUsernameFromURL(node.github).includes(caseFreeSearchText)
+      });
+
+      setFilteredParticipants(fileredResult);
+    } else {
+      setFilteredParticipants(edges);
+    }
+  }, [searchText]);
+
+
+
   const [id, setID] = React.useState(null)
   return (
     <main>
@@ -69,12 +119,35 @@ function Content(props) {
                 </AwesomeButtonSocial>
               </Grid>
             </Grid>
+
           </div>
+        </Container>
+        <Container maxWidth='md'>
+          <Grid container spacing={1} justify='center'>
+            <Grid item xs={12} sm={8} md={4}>
+              <SearchTextField
+                InputLabelProps={{
+                  className: classes.floatingLabelFocusStyle,
+                }}
+                onChange={handleSearch}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                style={{ marginTop: 40 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                placeholder="Search by name or Github username"
+                id="input-with-icon-grid"
+                color="secondary"
+                label="🔎" />
+            </Grid>
+          </Grid>
         </Container>
       </div>
       <Container className={classes.cardGrid} maxWidth='md'>
         <Grid container spacing={4}>
-          {edges.map((edge, index) => {
+          {Boolean(filteredParticipants.length) && filteredParticipants.map((edge, index) => {
             return (
               <Grid key={index} item xs={12} sm={6} md={4}>
                 <Card
@@ -145,6 +218,19 @@ function Content(props) {
               </Grid>
             )
           })}
+          {!Boolean(filteredParticipants.length) &&
+            <Grid item xs={12} >
+              <Typography
+                component='div'
+                variant='h5'
+                align='center'
+                color='inherit'
+                gutterBottom
+              > <span role='img' aria-label='user not found'>
+                  🤕
+            </span>  No user found</Typography>
+            </Grid>
+          }
           <Modal
             disableEnforceFocus
             disableAutoFocus
