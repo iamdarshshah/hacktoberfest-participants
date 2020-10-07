@@ -9,36 +9,20 @@ import {
   Modal,
   Typography,
 } from '@material-ui/core'
-import {
-  withStyles,
-} from '@material-ui/core/styles';
+
 import GitHubIcon from '@material-ui/icons/GitHub'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import TextField from '@material-ui/core/TextField'
 import Link from '@material-ui/core/Link'
 import useStyles from './Content.styles'
 import { AwesomeButtonSocial } from 'react-awesome-button'
 import 'react-awesome-button/dist/styles.css'
 import Profile from '../Profile'
+import SearchTextField from './SearchTextField'
 
-const SearchTextField = withStyles((theme) => {
-  return {
-    root: {
-      '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-          borderColor: theme.palette.secondary.dark,
-        },
-        '&:hover fieldset': {
-          borderColor: theme.palette.primary.contrastText,
-        },
-        '&.Mui-focused fieldset': {
-          borderColor: theme.palette.primary.contrastText,
-        },
-      },
-    },
-  }
-})(TextField);
+const getGithubUsernameFromURL = (URL) => {
+  return URL.split('.com/')[1].toLowerCase()
+}
 
 function Content(props) {
   const { edges } = props.data.allContributorsJson
@@ -47,12 +31,8 @@ function Content(props) {
   const [filteredParticipants, setFilteredParticipants] = React.useState(edges)
   const [searchText, setSearchText] = React.useState('')
 
-  const handleSearch = ({ target }) => {
-    setSearchText(target.value);
-  }
-
-  const getGithubUsernameFromURL = (URL) => {
-    return URL.substring(19).toLowerCase()
+  const handleSearch = ({ target: { value } }) => {
+    setSearchText(value);
   }
 
   React.useEffect(() => {
@@ -60,8 +40,8 @@ function Content(props) {
       const caseFreeSearchText = searchText.trim().toLowerCase();
       if (!edges || !edges.length) return;
 
-      const fileredResult = edges.filter(({ node }) => {
-        return node.name.toLowerCase().includes(caseFreeSearchText) || getGithubUsernameFromURL(node.github).includes(caseFreeSearchText)
+      const fileredResult = edges.filter(({ node: { name, github } }) => {
+        return name.toLowerCase().includes(caseFreeSearchText) || getGithubUsernameFromURL(github).includes(caseFreeSearchText)
       });
 
       setFilteredParticipants(fileredResult);
@@ -140,7 +120,7 @@ function Content(props) {
                 placeholder="Search by name or Github username"
                 id="input-with-icon-grid"
                 color="secondary"
-                label="🔎" />
+              />
             </Grid>
           </Grid>
         </Container>
@@ -227,8 +207,8 @@ function Content(props) {
                 color='inherit'
                 gutterBottom
               > <span role='img' aria-label='user not found'>
-                  🤕
-            </span>  No user found</Typography>
+                🤕
+            </span>  No participant found</Typography>
             </Grid>
           }
           <Modal
