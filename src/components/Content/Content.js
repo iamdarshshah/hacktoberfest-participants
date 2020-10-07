@@ -18,7 +18,11 @@ import useStyles from './Content.styles'
 import { AwesomeButtonSocial } from 'react-awesome-button'
 import 'react-awesome-button/dist/styles.css'
 import Profile from '../Profile'
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchIcon from '@material-ui/icons/Search';
 import SearchTextField from './SearchTextField'
+
+
 
 const getGithubUsernameFromURL = (URL) => {
   return URL.split('.com/')[1].toLowerCase()
@@ -104,11 +108,13 @@ function Content(props) {
         </Container>
         <Container maxWidth='md'>
           <Grid container spacing={1} justify='center'>
-            <Grid item xs={12} sm={8} md={4}>
+            <Grid item xs={12} sm={8} md={5}>
               <SearchTextField
-                InputLabelProps={{
-                  className: classes.floatingLabelFocusStyle,
-                }}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                }
                 onChange={handleSearch}
                 InputLabelProps={{
                   shrink: true,

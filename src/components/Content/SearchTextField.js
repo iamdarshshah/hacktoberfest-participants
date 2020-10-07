@@ -1,4 +1,5 @@
-import TextField from '@material-ui/core/TextField'
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+
 import {
     withStyles,
 } from '@material-ui/core/styles';
@@ -19,7 +20,7 @@ const SearchTextField = withStyles((theme) => {
             },
         },
     }
-})(TextField);
+})(OutlinedInput);
 
 
 export default SearchTextField;
