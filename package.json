@@ -13,7 +13,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@material-ui/core": "^4.10.0",
+    "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "dayjs": "^1.9.1",
     "gatsby": "^2.24.69",
