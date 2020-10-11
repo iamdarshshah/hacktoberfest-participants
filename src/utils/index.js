@@ -1,22 +1,16 @@
-import React from 'react'
+import React from 'react';
 
 const useThemeState = (defaultValue, key) => {
-  const [value, setValue] = React.useState(() => {
-    let theme = defaultValue
-    if (typeof window !== 'undefined') {
-      theme = localStorage.getItem(key)
-      return theme ? JSON.parse(theme) : defaultValue
-    }
-    return
-  })
+  const [value, setValue] = React.useState(defaultValue);
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem(key, JSON.stringify(value))
+      let theme = localStorage.getItem(key);
+      setValue(theme? theme :  defaultValue);
     }
-  }, [key, value])
+  }, [key, value]);
 
-  return [value, setValue]
-}
+  return [value, setValue];
+};
 
-export { useThemeState }
+export { useThemeState };
