@@ -23,7 +23,7 @@
     "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-react-helmet": "^3.3.13",
     "gatsby-plugin-sharp": "^2.6.39",
-    "gatsby-transformer-json": "^2.4.3",
+    "gatsby-transformer-json": "^2.4.14",
     "gatsby-source-filesystem": "^2.3.34",
     "gatsby-transformer-sharp": "^2.5.17",
     "react": "^16.12.0",
