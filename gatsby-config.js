@@ -16,6 +16,16 @@ module.exports = {
         path: `./src/contributors/`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Ubuntu`,
+          `source sans pro\:300,400,400i,700`
+        ],
+        display: 'swap'
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
   ],
