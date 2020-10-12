@@ -1,19 +1,20 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import { ThemeProvider } from '@material-ui/core/styles'
-import { Helmet } from 'react-helmet'
-import { darkTheme, lightTheme } from '../config/theme'
-import { useThemeState } from '../utils'
-import Header from '../components/Header'
-import icon from '../static/Icon.png'
-import Footer from '../components/Footer'
-import { useStyles } from '../styles/style'
-import Content from '../components/Content'
+import React from 'react';
+import { graphql } from 'gatsby';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { Helmet } from 'react-helmet';
+import { darkTheme, lightTheme } from '../config/theme';
+import { useThemeState } from '../utils';
+import Header from '../components/Header';
+import icon from '../static/Icon.png';
+import Footer from '../components/Footer';
+import { useStyles } from '../styles/style';
+import Content from '../components/Content';
 
 export default function Home(props) {
-  const classes = useStyles()
-  const [theme, setTheme] = useThemeState('light', 'theme')
+  const classes = useStyles();
+  const [theme, setTheme] = useThemeState('light', 'theme');
+
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <React.Fragment>
@@ -29,7 +30,11 @@ export default function Home(props) {
         </Helmet>
         <Header
           onChange={() => {
-            setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+            setTheme((prev) => {
+              let value = prev === 'light' ? 'dark' : 'light';
+              localStorage.setItem('theme', value);
+              return value;
+            });
           }}
           theme={theme}
         />
@@ -39,7 +44,7 @@ export default function Home(props) {
         </footer>
       </React.Fragment>
     </ThemeProvider>
-  )
+  );
 }
 
 export const query = graphql`
@@ -56,4 +61,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
