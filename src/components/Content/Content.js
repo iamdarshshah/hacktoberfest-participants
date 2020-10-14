@@ -57,7 +57,12 @@ function Content(props) {
 
   const [id, setID] = React.useState(null);
   return (
-    <main>
+      <main>
+
+      <head>
+      <meta http-equiv="content-type" content="text/html" charset="ISO-8859-1" />
+      </head>
+
       <div className={classes.heroContent}>
         <Container maxWidth='sm'>
           <Typography
