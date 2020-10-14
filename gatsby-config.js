@@ -17,13 +17,31 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
-          `Ubuntu`,
-          `source sans pro\:300,400,400i,700`
+          {
+            family: `Ubuntu`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+            
+          },
+          {
+            family: `Frank Ruhl Libre`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Yatra One`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Rakkas`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+          },
         ],
-        display: 'swap'
       },
     },
     `gatsby-transformer-sharp`,
