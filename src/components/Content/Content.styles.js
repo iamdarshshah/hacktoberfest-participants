@@ -55,4 +55,9 @@ export default makeStyles((theme) => ({
     display: 'flex',
     maxWidth: '95%',
   },
+  pagination:{
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '12px'
+  }
 }));

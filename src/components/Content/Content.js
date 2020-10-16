@@ -5,6 +5,7 @@ import {
   Container,
   Divider,
   Fade,
+  Button,
   Grid,
   Modal,
   Typography,
@@ -32,7 +33,7 @@ function Content(props) {
   const [modal, setModal] = React.useState(false);
   const [filteredParticipants, setFilteredParticipants] = React.useState(edges);
   const [searchText, setSearchText] = React.useState('');
-
+  const [firstParticipantIndex, setFirstParticipantIndex] = React.useState(0);
   const handleSearch = ({ target: { value } }) => {
     setSearchText(value);
   };
@@ -51,9 +52,11 @@ function Content(props) {
 
       setFilteredParticipants(fileredResult);
     } else {
-      setFilteredParticipants(edges);
+      setFilteredParticipants(
+        edges.slice(firstParticipantIndex, firstParticipantIndex + 6)
+      );
     }
-  }, [searchText]);
+  }, [searchText, firstParticipantIndex]);
 
   const [id, setID] = React.useState(null);
   return (
@@ -239,6 +242,33 @@ function Content(props) {
             </div>
           </Modal>
         </Grid>
+        <Container className={classes.pagination} maxWidth='md'>
+          <Button
+            onClick={() => {
+              setFirstParticipantIndex((prev) =>
+                prev - 6 >= 0 ? prev - 6 : 0
+              );
+            }}
+            disabled={firstParticipantIndex === 0}
+            variant='contained'
+            color='primary'
+          >
+            Prev
+          </Button>
+          <Button
+            onClick={() => {
+              setFirstParticipantIndex((prev) => {
+                console.log(prev);
+                return prev + 6 >= edges.length ? prev : prev + 6;
+              });
+            }}
+            disabled={firstParticipantIndex + 6 > edges.length}
+            variant='contained'
+            color='primary'
+          >
+            Next
+          </Button>
+        </Container>
       </Container>
     </main>
   );
