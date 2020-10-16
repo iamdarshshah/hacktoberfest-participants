@@ -16,6 +16,34 @@ module.exports = {
         path: `./src/contributors/`,
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Ubuntu`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+            
+          },
+          {
+            family: `Frank Ruhl Libre`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Yatra One`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Rakkas`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
   ],
