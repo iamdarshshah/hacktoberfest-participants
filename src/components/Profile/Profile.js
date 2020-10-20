@@ -4,7 +4,6 @@ import {
   Card,
   CardHeader,
   Typography,
-  CardMedia,
   CardContent,
   Avatar,
   Link,
@@ -50,14 +49,16 @@ function Profile({ id }) {
       <CardContent className={classes.prList}>
         {data &&
           data.map(({ html_url, title, state, number }, i) => (
-            <div key={i}>
+            <div key={i} className={classes.content}>
               <Typography variant='body2'>
                 <Link href={html_url} className={classes.title} target='_blank'>
-                  <code>{`#${number} ${title} `}</code>
+                  <code>
+                    <b>{`#${number} `}</b> {`${title}`}
+                  </code>
                 </Link>
               </Typography>
               <Typography variant='body2' className={classes.state}>
-                <code>{state}</code>
+                <small className={classes.status}>{state}</small>
               </Typography>
             </div>
           ))}

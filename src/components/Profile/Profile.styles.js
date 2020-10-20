@@ -33,9 +33,17 @@ export default makeStyles((theme) => ({
       boxShadow: theme.shadows[20],
       cursor: 'pointer',
     },
+    padding: '20px',
   },
   prList: {
     overflow: 'auto',
-    maxHeight: '60vh',
+    maxHeight: '70vh',
+    scrollbarWidth: 'thin'
+  },
+  content: {
+    marginBottom: '10px',
+  },
+  status: {
+    textTransform: 'capitalize',
   },
 }));
