@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Hidden } from '@material-ui/core';
 
 export default makeStyles((theme) => ({
   container: {
@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
   },
   title: {
     color: theme.palette.text.primary,
-    textDecoration: 'none',
+    textDecoration: 'none'
   },
   state: {
     color: theme.palette.text.secondary,
@@ -34,8 +34,14 @@ export default makeStyles((theme) => ({
       cursor: 'pointer',
     },
   },
-  prList: {
-    overflow: 'auto',
+  cardContent: {
+    padding: 16,
+    paddingRight: 8,
     maxHeight: '60vh',
   },
+  cardContentList: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  }
 }));

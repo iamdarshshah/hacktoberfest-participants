@@ -4,7 +4,6 @@ import {
   Card,
   CardHeader,
   Typography,
-  CardMedia,
   CardContent,
   Avatar,
   Link,
@@ -12,6 +11,9 @@ import {
 import config from '../../config/constants';
 import useStyles from './Profile.styles';
 import { CircularProgress } from '@material-ui/core';
+import SimpleBarReact from 'simplebar-react';
+import "simplebar/src/simplebar.css";
+
 function Profile({ id }) {
   const classes = useStyles();
   const [data, setData] = React.useState(null);
@@ -47,11 +49,12 @@ function Profile({ id }) {
         }
       />
 
-      <CardContent className={classes.prList}>
+      <CardContent className={classes.cardContent}>
+      <SimpleBarReact autoHide={false} style={{maxHeight:'60vh', paddingRight: 8 }}>
         {data &&
           data.map(({ html_url, title, state, number }, i) => (
             <div key={i}>
-              <Typography variant='body2'>
+              <Typography variant='body2' className={classes.cardContentList}>
                 <Link href={html_url} className={classes.title} target='_blank'>
                   <code>{`#${number} ${title} `}</code>
                 </Link>
@@ -60,8 +63,9 @@ function Profile({ id }) {
                 <code>{state}</code>
               </Typography>
             </div>
-          ))}
-      </CardContent>
+            ))}
+            </SimpleBarReact>
+            </CardContent>
     </Card>
   );
 }
