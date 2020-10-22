@@ -24,6 +24,7 @@ export default makeStyles((theme) => ({
   },
   card: {
     height: '100%',
+    width: 600,
     display: 'flex',
     flexDirection: 'column',
     borderRadius: '10px',

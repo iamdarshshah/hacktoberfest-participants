@@ -8,7 +8,8 @@ import {
   List,
   ListItem,
   ListItemText,
-  ListItemIcon
+  ListItemIcon,
+  Divider
 } from '@material-ui/core';
 import config from '../../config/constants';
 import useStyles from './Profile.styles';
@@ -51,7 +52,7 @@ function Profile({ id }) {
           <Avatar src={data[0].user.avatar_url} className={classes.image} />
         }
       />
-
+      <Divider />
       <CardContent className={classes.cardContent}>
         <SimpleBarReact autoHide={false} style={{maxHeight:'60vh', paddingRight: 8 }}>
           <List component="nav">
