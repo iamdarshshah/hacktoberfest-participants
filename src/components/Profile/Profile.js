@@ -3,16 +3,19 @@ import CountPullRequest from '../pullRequest/countPullRequest';
 import {
   Card,
   CardHeader,
-  Typography,
   CardContent,
   Avatar,
-  Link,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon
 } from '@material-ui/core';
 import config from '../../config/constants';
 import useStyles from './Profile.styles';
 import { CircularProgress } from '@material-ui/core';
 import SimpleBarReact from 'simplebar-react';
 import "simplebar/src/simplebar.css";
+import PRStatus from '../PRStatus/PRStatus';
 
 function Profile({ id }) {
   const classes = useStyles();
@@ -50,22 +53,28 @@ function Profile({ id }) {
       />
 
       <CardContent className={classes.cardContent}>
-      <SimpleBarReact autoHide={false} style={{maxHeight:'60vh', paddingRight: 8 }}>
-        {data &&
-          data.map(({ html_url, title, state, number }, i) => (
-            <div key={i}>
-              <Typography variant='body2' className={classes.cardContentList}>
-                <Link href={html_url} className={classes.title} target='_blank'>
-                  <code>{`#${number} ${title} `}</code>
-                </Link>
-              </Typography>
-              <Typography variant='body2' className={classes.state}>
-                <code>{state}</code>
-              </Typography>
-            </div>
-            ))}
-            </SimpleBarReact>
-            </CardContent>
+        <SimpleBarReact autoHide={false} style={{maxHeight:'60vh', paddingRight: 8 }}>
+          <List component="nav">
+            {data &&
+                data.map(({ html_url, title, state, number }, i) => (
+                  <ListItem
+                    button
+                    onClick={() => window.location.href=html_url}
+                    key={i}
+                  >
+                    <ListItemIcon className={classes.icon}>
+                      <PRStatus status={state}/>
+                    </ListItemIcon>
+                    <ListItemText 
+                      secondary={<code className={classes.state}>{`#${number} - ${state}`}</code>} 
+                      primaryTypographyProps='className={classes.cardContentList}'>
+                      {`${title}  `}
+                    </ListItemText>
+                  </ListItem>
+                  ))}
+          </List>
+        </SimpleBarReact>
+      </CardContent>
     </Card>
   );
 }

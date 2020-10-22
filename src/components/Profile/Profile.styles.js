@@ -35,13 +35,16 @@ export default makeStyles((theme) => ({
     },
   },
   cardContent: {
-    padding: 16,
+    padding:0,
     paddingRight: 8,
     maxHeight: '60vh',
   },
   cardContentList: {
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis'
+    textTransform: 'capitalize',
+  },
+  icon:{
+    padding:5,
+    minWidth: 16,
+    marginRight: 5,
   }
 }));
