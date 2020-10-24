@@ -22,6 +22,7 @@ import Profile from '../Profile';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import SearchTextField from './SearchTextField';
+import Pagination from '../Pagination';
 
 const getGithubUsernameFromURL = (URL) => {
   return URL.split('.com/')[1].toLowerCase();
@@ -29,6 +30,8 @@ const getGithubUsernameFromURL = (URL) => {
 
 function Content(props) {
   const { edges } = props.data.allContributorsJson;
+  const participantsCount = edges.length;
+  const participantsPerPage = 6;
   const classes = useStyles();
   const [modal, setModal] = React.useState(false);
   const [filteredParticipants, setFilteredParticipants] = React.useState(edges);
@@ -53,7 +56,10 @@ function Content(props) {
       setFilteredParticipants(fileredResult);
     } else {
       setFilteredParticipants(
-        edges.slice(firstParticipantIndex, firstParticipantIndex + 6)
+        edges.slice(
+          firstParticipantIndex,
+          firstParticipantIndex + participantsPerPage
+        )
       );
     }
   }, [searchText, firstParticipantIndex]);
@@ -242,33 +248,24 @@ function Content(props) {
             </div>
           </Modal>
         </Grid>
-        <Container className={classes.pagination} maxWidth='md'>
-          <Button
-            onClick={() => {
-              setFirstParticipantIndex((prev) =>
-                prev - 6 >= 0 ? prev - 6 : 0
-              );
-            }}
-            disabled={firstParticipantIndex === 0}
-            variant='contained'
-            color='primary'
-          >
-            Prev
-          </Button>
-          <Button
-            onClick={() => {
-              setFirstParticipantIndex((prev) => {
-                console.log(prev);
-                return prev + 6 >= edges.length ? prev : prev + 6;
-              });
-            }}
-            disabled={firstParticipantIndex + 6 > edges.length}
-            variant='contained'
-            color='primary'
-          >
-            Next
-          </Button>
-        </Container>
+        <Pagination
+          onPrev={() => {
+            setFirstParticipantIndex((prev) =>
+              prev - participantsPerPage >= 0 ? prev - participantsPerPage : 0
+            );
+          }}
+          onNext={() => {
+            setFirstParticipantIndex((prev) => {
+              return prev + participantsPerPage >= edges.length
+                ? prev
+                : prev + participantsPerPage;
+            });
+          }}
+          actualPage={Math.ceil(
+            (firstParticipantIndex + 1) / participantsPerPage
+          )}
+          pagesCount={Math.ceil(participantsCount / participantsPerPage)}
+        ></Pagination>
       </Container>
     </main>
   );
