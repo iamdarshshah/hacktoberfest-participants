@@ -26,8 +26,7 @@ export default function Home(props) {
             rel='canonical'
             href='https://iamdarshshah.github.io/hacktoberfest-participants'
           />
-          <link rel='icon' href={icon} />          
-          <link rel="stylesheet" href='https://use.fontawesome.com/releases/v5.12.0/css/all.css' />
+          <link rel='icon' href={icon} />
         </Helmet>
         <Header
           onChange={() => {
