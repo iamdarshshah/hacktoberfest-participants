@@ -64,6 +64,9 @@ function Content(props) {
         )
       );
     } else {
+      setParticipantsCount(
+        edges.length
+      );
       setFilteredParticipants(
         edges.slice(
           firstParticipantIndex,
