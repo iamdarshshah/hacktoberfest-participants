@@ -19,7 +19,7 @@ export default makeStyles((theme) => ({
     transition: 'background-color .3s',
     '&>span': {
       position: 'relative',
-      top: '-3px',
+      top: '-2px',
       fontWeight: 'bold',
       fontSize: '18px',
     },
