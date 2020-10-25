@@ -11,10 +11,12 @@ export default makeStyles((theme) => ({
   paginationButton: {
     color: theme.palette.primary.contrastText,
     fontSize: '16px',
+    borderRadius: '4px',
     outilne: 'none',
     backgroundColor: 'transparent',
     border: 'none',
-    padding: '10px',
+    padding: '10px 0',
+    transition: 'background-color .3s',
     '&>span': {
       position: 'relative',
       top: '-3px',
@@ -23,7 +25,8 @@ export default makeStyles((theme) => ({
     },
     '&:focus': {
       border: 'none',
-      outilne: 'none',
+      outline: 'none',
+      backgroundColor: 'rgba(230,230,230,.1)'
     },
   },
   paginationCount: {

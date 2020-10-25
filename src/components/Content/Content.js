@@ -30,15 +30,18 @@ const getGithubUsernameFromURL = (URL) => {
 
 function Content(props) {
   const { edges } = props.data.allContributorsJson;
-  const participantsCount = edges.length;
   const participantsPerPage = 6;
   const classes = useStyles();
   const [modal, setModal] = React.useState(false);
   const [filteredParticipants, setFilteredParticipants] = React.useState(edges);
   const [searchText, setSearchText] = React.useState('');
   const [firstParticipantIndex, setFirstParticipantIndex] = React.useState(0);
+  const [participantsCount, setParticipantsCount] = React.useState(
+    edges.length
+  );
   const handleSearch = ({ target: { value } }) => {
     setSearchText(value);
+    setFirstParticipantIndex(0);
   };
 
   React.useEffect(() => {
@@ -46,14 +49,20 @@ function Content(props) {
       const caseFreeSearchText = searchText.trim().toLowerCase();
       if (!edges || !edges.length) return;
 
-      const fileredResult = edges.filter(({ node: { name, github } }) => {
+      const filteredResult = edges.filter(({ node: { name, github } }) => {
         return (
           name.toLowerCase().includes(caseFreeSearchText) ||
           getGithubUsernameFromURL(github).includes(caseFreeSearchText)
         );
       });
-
-      setFilteredParticipants(fileredResult);
+      setParticipantsCount(filteredResult.length);
+      
+      setFilteredParticipants(
+        filteredResult.slice(
+          firstParticipantIndex,
+          firstParticipantIndex + participantsPerPage
+        )
+      );
     } else {
       setFilteredParticipants(
         edges.slice(
@@ -62,7 +71,7 @@ function Content(props) {
         )
       );
     }
-  }, [searchText, firstParticipantIndex]);
+  }, [searchText, firstParticipantIndex, participantsCount]);
 
   const [id, setID] = React.useState(null);
   return (

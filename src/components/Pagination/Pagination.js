@@ -2,12 +2,15 @@ import useStyles from './Pagination.styles';
 import { Container } from '@material-ui/core';
 function Pagination(props) {
   const classes = useStyles();
+  const isNextButtonDisabled = props.actualPage === props.pagesCount;
+  const isPrevButtonDisabled = props.actualPage === 1;
   return (
     <Container className={classes.pagination} maxWidth='md'>
       <button
         className={classes.paginationButton}
         onClick={props.onPrev}
-        style={{ opacity: props.actualPage === 1 ? 0 : 1 }}
+        disabled={isPrevButtonDisabled}
+        style={{ opacity: isPrevButtonDisabled ? 0 : 1 }}
       >
         <span>&larr;</span> Previous
       </button>
@@ -17,8 +20,9 @@ function Pagination(props) {
       <button
         className={classes.paginationButton}
         onClick={props.onNext}
+        disabled={isNextButtonDisabled}
         style={{
-          opacity: props.actualPage === props.pagesCount ? 0 : 1,
+          opacity: isNextButtonDisabled ? 0 : 1,
         }}
       >
         Next <span>&rarr;</span>
