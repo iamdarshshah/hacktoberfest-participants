@@ -55,4 +55,5 @@ export default makeStyles((theme) => ({
     display: 'flex',
     maxWidth: '95%',
   },
+  
 }));
