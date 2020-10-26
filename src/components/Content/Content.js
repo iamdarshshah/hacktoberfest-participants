@@ -5,6 +5,7 @@ import {
   Container,
   Divider,
   Fade,
+  Button,
   Grid,
   Modal,
   Typography,
@@ -21,6 +22,7 @@ import Profile from '../Profile';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import SearchTextField from './SearchTextField';
+import Pagination from '../Pagination';
 
 const getGithubUsernameFromURL = (URL) => {
   return URL.split('.com/')[1].toLowerCase();
@@ -28,13 +30,18 @@ const getGithubUsernameFromURL = (URL) => {
 
 function Content(props) {
   const { edges } = props.data.allContributorsJson;
+  const participantsPerPage = 6;
   const classes = useStyles();
   const [modal, setModal] = React.useState(false);
   const [filteredParticipants, setFilteredParticipants] = React.useState(edges);
   const [searchText, setSearchText] = React.useState('');
-
+  const [firstParticipantIndex, setFirstParticipantIndex] = React.useState(0);
+  const [participantsCount, setParticipantsCount] = React.useState(
+    edges.length
+  );
   const handleSearch = ({ target: { value } }) => {
     setSearchText(value);
+    setFirstParticipantIndex(0);
   };
 
   React.useEffect(() => {
@@ -42,18 +49,32 @@ function Content(props) {
       const caseFreeSearchText = searchText.trim().toLowerCase();
       if (!edges || !edges.length) return;
 
-      const fileredResult = edges.filter(({ node: { name, github } }) => {
+      const filteredResult = edges.filter(({ node: { name, github } }) => {
         return (
           name.toLowerCase().includes(caseFreeSearchText) ||
           getGithubUsernameFromURL(github).includes(caseFreeSearchText)
         );
       });
-
-      setFilteredParticipants(fileredResult);
+      setParticipantsCount(filteredResult.length);
+      
+      setFilteredParticipants(
+        filteredResult.slice(
+          firstParticipantIndex,
+          firstParticipantIndex + participantsPerPage
+        )
+      );
     } else {
-      setFilteredParticipants(edges);
+      setParticipantsCount(
+        edges.length
+      );
+      setFilteredParticipants(
+        edges.slice(
+          firstParticipantIndex,
+          firstParticipantIndex + participantsPerPage
+        )
+      );
     }
-  }, [searchText]);
+  }, [searchText, firstParticipantIndex, participantsCount]);
 
   const [id, setID] = React.useState(null);
   return (
@@ -239,6 +260,24 @@ function Content(props) {
             </div>
           </Modal>
         </Grid>
+        <Pagination
+          onPrev={() => {
+            setFirstParticipantIndex((prev) =>
+              prev - participantsPerPage >= 0 ? prev - participantsPerPage : 0
+            );
+          }}
+          onNext={() => {
+            setFirstParticipantIndex((prev) => {
+              return prev + participantsPerPage >= edges.length
+                ? prev
+                : prev + participantsPerPage;
+            });
+          }}
+          actualPage={Math.ceil(
+            (firstParticipantIndex + 1) / participantsPerPage
+          )}
+          pagesCount={Math.ceil(participantsCount / participantsPerPage)}
+        ></Pagination>
       </Container>
     </main>
   );
