@@ -1,6 +1,7 @@
+import React from 'react';
 import useStyles from './Pagination.styles';
 import { Container } from '@material-ui/core';
-function Pagination(props) {
+const Pagination = (props) => {
   const classes = useStyles();
   const isNextButtonDisabled = props.actualPage === props.pagesCount;
   const isPrevButtonDisabled = props.actualPage === 1;
@@ -29,6 +30,6 @@ function Pagination(props) {
       </button>
     </Container>
   );
-}
+};
 
 export default Pagination;
