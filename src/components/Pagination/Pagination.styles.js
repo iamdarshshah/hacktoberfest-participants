@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
     backgroundColor: 'transparent',
     border: 'none',
     padding: '10px 0',
-    transition: 'background-color .3s',
+    cursor: 'pointer',
     '&>span': {
       position: 'relative',
       top: '-2px',
@@ -26,7 +26,6 @@ export default makeStyles((theme) => ({
     '&:focus': {
       border: 'none',
       outline: 'none',
-      backgroundColor: 'rgba(230,230,230,.1)'
     },
   },
   paginationCount: {
