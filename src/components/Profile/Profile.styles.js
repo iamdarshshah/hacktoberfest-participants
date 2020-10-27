@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
   },
   title: {
     color: theme.palette.text.primary,
-    textDecoration: 'none',
+    textDecoration: 'none'
   },
   state: {
     color: theme.palette.text.secondary,
@@ -24,6 +24,7 @@ export default makeStyles((theme) => ({
   },
   card: {
     height: '100%',
+    width: 600,
     display: 'flex',
     flexDirection: 'column',
     borderRadius: '10px',
@@ -34,8 +35,17 @@ export default makeStyles((theme) => ({
       cursor: 'pointer',
     },
   },
-  prList: {
-    overflow: 'auto',
+  cardContent: {
+    padding:0,
+    paddingRight: 8,
     maxHeight: '60vh',
   },
+  cardContentList: {
+    textTransform: 'capitalize',
+  },
+  icon:{
+    padding:5,
+    minWidth: 16,
+    marginRight: 5,
+  }
 }));
