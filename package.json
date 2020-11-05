@@ -24,7 +24,7 @@
     "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.3.14",
-    "gatsby-plugin-sharp": "^2.7.0",
+    "gatsby-plugin-sharp": "^2.7.1",
     "gatsby-source-filesystem": "^2.4.1",
     "gatsby-transformer-json": "^2.4.15",
     "gatsby-transformer-sharp": "^2.5.21",
