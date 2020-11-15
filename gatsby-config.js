@@ -6,6 +6,7 @@
 
 module.exports = {
   /* Your site config here */
+  pathPrefix: '/hacktoberfest-participants',
   plugins: [
     `gatsby-plugin-material-ui`,
     `gatsby-transformer-json`,
@@ -23,23 +24,22 @@ module.exports = {
           {
             family: `Ubuntu`,
             subsets: [`latin`],
-            variants: [`400`, `700`]
-            
+            variants: [`400`, `700`],
           },
           {
             family: `Frank Ruhl Libre`,
             subsets: [`latin`],
-            variants: [`400`, `700`]
+            variants: [`400`, `700`],
           },
           {
             family: `Yatra One`,
             subsets: [`latin`],
-            variants: [`400`, `700`]
+            variants: [`400`, `700`],
           },
           {
             family: `Rakkas`,
             subsets: [`latin`],
-            variants: [`400`, `700`]
+            variants: [`400`, `700`],
           },
         ],
       },
@@ -47,4 +47,4 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
   ],
-}
+};
