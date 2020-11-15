@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link, Typography } from '@material-ui/core'
-import useStyles from './Footer.styles'
+import React from 'react';
+import { Link, Typography } from '@material-ui/core';
+import useStyles from './Footer.styles';
 
 function Footer() {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <div className={classes.footer}>
@@ -16,8 +16,8 @@ function Footer() {
           💘
         </span>
         , Deployed on{' '}
-        <Link color='textPrimary' href='https://www.netlify.com/'>
-          Netlify
+        <Link color='textPrimary' href='https://pages.github.com/'>
+          GitHub Pages
         </Link>{' '}
         <span role='img' aria-label='rocket'>
           🚀
@@ -33,7 +33,7 @@ function Footer() {
         iamdarshshah &copy; 2020
       </Typography>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

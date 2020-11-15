@@ -18,9 +18,6 @@
   <a href="https://github.com/iamdarshshah/hacktoberfest-participants/issues">
     <img src="https://img.shields.io/github/issues/iamdarshshah/hacktoberfest-participants?logo=github&style=plastic" alt="GitHub issues" />
   </a>
-  <a href="https://app.netlify.com/sites/hacktoberfest-participants/deploys">
-    <img src="https://img.shields.io/netlify/6ba5f5ad-3203-471e-b054-9634297e851c?logo=netlify&style=plastic" alt="Netlify Status" />
-  </a>
   <a href="https://github.com/iamdarshshah/hacktoberfest-participants">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?logo=git&style=plastic&logoColor=white" alt="PRs Welcome" />
   </a>
