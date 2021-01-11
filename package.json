@@ -17,7 +17,7 @@
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "gatsby": "^2.30.1",
-    "dayjs": "^1.10.2",
+    "dayjs": "^1.10.3",
     "gatsby-awesome-pagination": "^0.3.6",
     "gatsby-image": "^2.9.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
