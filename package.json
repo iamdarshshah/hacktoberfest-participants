@@ -26,7 +26,7 @@
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.8.0",
     "gatsby-plugin-sharp": "^2.12.1",
-    "gatsby-source-filesystem": "^2.9.0",
+    "gatsby-source-filesystem": "^2.9.1",
     "gatsby-transformer-sharp": "^2.10.1",
     "gatsby-transformer-json": "^2.9.0",
     "react": "^16.14.0",
