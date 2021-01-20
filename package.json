@@ -28,7 +28,7 @@
     "gatsby-plugin-sharp": "^2.12.2",
     "gatsby-source-filesystem": "^2.10.0",
     "gatsby-transformer-sharp": "^2.10.1",
-    "gatsby-transformer-json": "^2.9.0",
+    "gatsby-transformer-json": "^2.10.0",
     "react": "^16.14.0",
     "react-awesome-button": "^6.5.1",
     "react-dom": "^16.14.0",
