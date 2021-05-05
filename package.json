@@ -16,7 +16,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
-    "gatsby": "^2.32.12",
+    "gatsby": "^2.32.13",
     "dayjs": "^1.10.4",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-image": "^3.4.0",
