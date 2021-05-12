@@ -19,7 +19,7 @@
     "gatsby": "^2.32.13",
     "dayjs": "^1.10.4",
     "gatsby-awesome-pagination": "^0.3.8",
-    "gatsby-image": "^3.4.0",
+    "gatsby-image": "^3.5.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-material-ui": "^2.1.10",
