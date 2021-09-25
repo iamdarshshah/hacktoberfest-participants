@@ -33,7 +33,7 @@
     "react-awesome-button": "^6.5.1",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
-    "simplebar-react": "^2.3.5",
+    "simplebar-react": "^2.3.6",
     "@tabler/icons": "^1.41.2"
   },
   "devDependencies": {
