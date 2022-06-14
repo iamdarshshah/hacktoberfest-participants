@@ -37,7 +37,7 @@
     "@tabler/icons": "^1.68.0"
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3",
+    "gh-pages": "^4.0.0",
     "prettier": "2.6.2"
   },
   "repository": {
