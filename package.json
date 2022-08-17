@@ -34,7 +34,7 @@
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
     "simplebar-react": "^2.4.1",
-    "@tabler/icons": "^1.68.0"
+    "@tabler/icons": "^1.83.1"
   },
   "devDependencies": {
     "gh-pages": "^4.0.0",
